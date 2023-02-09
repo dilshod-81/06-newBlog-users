@@ -3,7 +3,7 @@
 {% block title %} Postlar {% endblock title %}
 
 {% block content %}
-<div class="card-group">
+<div class="card-columns">
     {% for article in object_list %}
         <div class="card" style="...">
             <div class="card-header">
@@ -13,14 +13,15 @@
                 <img class="card-img-top" src="{{ article.photo.url }}"  alt="{{ article.title }}">
             {% endif %}
             <div class="card-body">
+
                 {{ article.summary }} ... <a href="{% url 'article_detail' article.pk %}">batafsil</a>
             </div>
             <hr>
             <div class="card-footer text-left text-muted">
-
                 <span class="text-muted">Muallif:  {{ article.author | title}} | {{ article.date }}</span>
             </div>
   </div>
+
 
     {% endfor %}
 </div>

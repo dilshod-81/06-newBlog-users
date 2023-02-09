@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<!--{% load crispy_forms_tags %}-->
+{% block title %} Dars jadvali {% endblock title %}
+
+{% block content %}
+    <h2>Dars jadvali</h2>
+<!--    <form method="post">{% csrf_token %}-->
+<!--&lt;!&ndash;        {{ form.as_p }}&ndash;&gt;-->
+<!--            {{ form|crispy }}-->
+<!--        <button type="submit" class="btn btn-primary">Kirish</button>-->
+<!--        <a class="btn btn-outline-danger" href="{% url 'password_reset' %}" role="button">Kalit so'zni tiklash</a>-->
+
+<!--    </form>-->
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock content %}
