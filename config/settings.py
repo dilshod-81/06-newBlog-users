@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=*@+q3xbo1t4a6&94w5g@lsm77vgn_41q9dg8k7hq!a1+t6n-("
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # True
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
@@ -119,6 +119,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
+LANGUAGES = (
+    ('en', '🇬🇧 English'),
+    ('ru', '🇷🇺 Russian'),
+    ('uz', '🇺🇿 Uzbek'),
+)
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+LOCALE_PATHS = BASE_DIR / 'locale',
 
 TIME_ZONE = "Asia/Tashkent"
 
@@ -159,7 +166,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # MEDIA
-MEDIA_URL = '/madia/'
+MEDIA_URL='/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 # CKEDITOR CONFIGS
