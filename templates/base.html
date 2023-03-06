@@ -1,3 +1,4 @@
+
 {% load static %}
 
 
@@ -10,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} SariqDev {% endblock %}</title>
+    <title>{% block title %} dars jadval{% endblock %}</title>
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="jquery-ui-themes-1.10.3/themes/smoothness/jquery-ui.css" />
 
@@ -88,7 +89,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                   <a href="{% url 'login' %}" class="dropdown-item ">Kirish</a>
                                   <a href="{% url 'jadval' %}" class="dropdown-item ">Dars jadvali</a>
-                                   <a href="{% url 'signup' %}" class="dropdown-item">Ro'yxatdan o'tish</a>
+                                  <a href="{% url 'signup' %}" class="dropdown-item">Ro'yxatdan o'tish</a>
                                 </div>
                               </li>
                             </ul>
@@ -99,10 +100,11 @@
     </nav>
 
     <main>
+
+
         <div class="container">
 
             {% block content %}
-
 
             {% endblock content %}
         </div>

@@ -1,0 +1,427 @@
+{% extends 'base.html' %}
+<!--{% load crispy_forms_tags %}-->
+{% block title %} Dars jadvali {% endblock title %}
+
+{% block content %}
+    <h2>Dars jadvali</h2>
+
+ <div class="card-body">
+
+                <a href="{% url 'article_list' %}">← Hamma dars jadvallar</a>
+
+            </div>
+<div class="container-md">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="page-header">
+                <a href="{% url 'jadval' %}"><h3 type="button" class="text-primary" >← Fakultetlar</h3></a>
+                <h1>Dars jadvali 101 - Guruh 1-son Davolash
+
+                </h1>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+
+                <!--Десктопная версия -->
+
+                <div class="col-lg-6 d-none d-md-block">
+                    <div class="btn-primary table table-bordered text-center table-responsive"><h3>Dushanba</h3></div>
+                    <table class="table table-bordered text-center table-responsive">
+                        <tbody>
+                           <tr class="bg-grey text-nowrap">
+                                <td class="bg-info-light font-weight-bold">Sana</td>
+                                <td class="bg-info-light font-weight-bold">Mashg'ulot <br> o'tish vaqti</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Fan</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Aditoriya <br> soatlari</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Ajratilgan <br> soat</td>
+                           </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">26.09.2022 </td>
+
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak, lek)</td>
+                                    <td class="text-primary"><i>TIBBIY BIOLOGIYA,<br> UMUMIY GENITIKA</i> </td>
+                                    <td class="text-primary"><i>(6+24)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap"> 26.09.2022</td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak, lek) </td>
+                                    <td class="text-primary"><i>BIOFIZIKA </i></td>
+                                    <td class="text-primary"><i>(6+18+6) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza </i></td>
+
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap"> 26.09.2022</td>
+                                    <td class="text-info-bold"> 13:10 - 14:30 <br> (prak) </td>
+                                    <td class="text-primary"><i>TIBBIYOYDA AXBOROT TEXNOLOGIYALARI </i> </td>
+                                    <td class="text-primary"><i>(12+48)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza </i> </td>
+                            </tr>
+                             <tr>
+                                <td class="bg-grey text-nowrap">03.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak, lek)</td>
+                                    <td class="text-primary"><i>TIBBIY BIOLOGIYA,<br> UMUMIY GENITIKA</i> </td>
+                                    <td class="text-primary"><i>(6+24)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">03.10.2022 </td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak, lek) </td>
+                                    <td class="text-primary"><i>BIOFIZIKA </i></td>
+                                    <td class="text-primary"><i>(6+18+6) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza </i></td>
+                            </tr>
+                            <tr>
+                               <td class="bg-grey text-nowrap"> 03.10.2022</td>
+                                    <td class="text-info-bold"> 13:10 - 14:30 <br> (prak) </td>
+                                    <td class="text-primary"><i>TIBBIYOYDA AXBOROT TEXNOLOGIYALARI </i> </td>
+                                    <td class="text-primary"><i>(12+48)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza </i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">10.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak, lek)</td>
+                                    <td class="text-primary"><i>TIBBIY BIOLOGIYA,<br> UMUMIY GENITIKA</i> </td>
+                                    <td class="text-primary"><i>(6+24)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">10.10.2022 </td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak, lek) </td>
+                                    <td class="text-primary"><i>BIOFIZIKA </i></td>
+                                    <td class="text-primary"><i>(6+18+6) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza </i></td>
+                            </tr>
+                            <tr>
+                               <td class="bg-grey text-nowrap"> 10.10.2022</td>
+                                    <td class="text-info-bold"> 13:10 - 14:30 <br> (prak) </td>
+                                    <td class="text-primary"><i>TIBBIYOYDA AXBOROT TEXNOLOGIYALARI </i> </td>
+                                    <td class="text-primary"><i>(12+48)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy <br> 2 s ma'ruza </i> </td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                     <!--Десктопная версия -->
+                <div class="col-lg-6 d-none d-md-block">
+                   <div class=" btn-primary table table-bordered text-center table-responsive"><h3>Seshanba</h3></div>
+                    <table class="table table-bordered text-center table-responsive">
+                        <tbody>
+                           <tr class="bg-grey text-nowrap">
+                                <td class="bg-info-light font-weight-bold">Sana</td>
+                                <td class="bg-info-light font-weight-bold">Mashg'ulot <br> o'tish vaqti</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Fan</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Aditoriya <br> soatlari</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Ajratilgan <br> soat</td>
+                           </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">27.09.2022 </td>
+
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>O'ZBEK(RUS) TILI</i> </td>
+                                    <td class="text-primary"><i>(0+30)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap"> 27.09.2022</td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak) </td>
+                                    <td class="text-primary"><i>LOTIN TILI VA TIBBIY TERMONOLOGIYA </i></td>
+                                    <td class="text-primary"><i>(0+30) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy</i></td>
+
+                            </tr>
+
+                             <tr>
+                                <td class="bg-grey text-nowrap">04.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>O'ZBEK(RUS) TILI</i> </td>
+                                    <td class="text-primary"><i>(0+30)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">04.10.2022 </td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak) </td>
+                                    <td class="text-primary"><i>LOTIN TILI VA TIBBIY TERMONOLOGIYA </i></td>
+                                    <td class="text-primary"><i>(0+30) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy</i></td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">11.10.2022 </td>
+                                   <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>O'ZBEK(RUS) TILI</i> </td>
+                                    <td class="text-primary"><i>(0+30)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">11.10.2022 </td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak) </td>
+                                    <td class="text-primary"><i>LOTIN TILI VA TIBBIY TERMONOLOGIYA </i></td>
+                                    <td class="text-primary"><i>(0+30) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy</i></td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">18.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>O'ZBEK(RUS) TILI</i> </td>
+                                    <td class="text-primary"><i>(0+30)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">18.10.2022 </td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak) </td>
+                                    <td class="text-primary"><i>LOTIN TILI VA TIBBIY TERMONOLOGIYA </i></td>
+                                    <td class="text-primary"><i>(0+30) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy</i></td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">25.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>O'ZBEK(RUS) TILI</i> </td>
+                                    <td class="text-primary"><i>(0+30)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+           <!--Десктопная версия -->
+
+                <div class="col-lg-6 d-none d-md-block">
+                    <div class="btn-primary table table-bordered text-center table-responsive"><h3>Chorshanba</h3></div>
+                    <table class="table table-bordered text-center table-responsive">
+                        <tbody>
+                           <tr class="bg-grey text-nowrap">
+                                <td class="bg-info-light font-weight-bold">Sana</td>
+                                <td class="bg-info-light font-weight-bold">Mashg'ulot <br> o'tish vaqti</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Fan</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Aditoriya <br> soatlari</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Ajratilgan <br> soat</td>
+                           </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">28.09.2022 </td>
+
+                                    <td class="text-info-bold"> 08:00 - 10:55 <br> (lek, prak)</td>
+                                    <td class="text-primary"><i>TIBBIYOT KASBIGA KIRISH</i> </td>
+                                    <td class="text-primary"><i>(14+46)</i> </td>
+                                    <td class="text-primary"><i>4 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+
+                             <tr>
+                                <td class="bg-grey text-nowrap">05.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 10:55 <br> (lek, prak)</td>
+                                    <td class="text-primary"><i>TIBBIYOT KASBIGA KIRISH</i> </td>
+                                    <td class="text-primary"><i>(14+46)</i> </td>
+                                    <td class="text-primary"><i>4 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">12.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 10:55 <br> (lek, prak)</td>
+                                    <td class="text-primary"><i>TIBBIYOT KASBIGA KIRISH</i> </td>
+                                    <td class="text-primary"><i>(14+46)</i> </td>
+                                    <td class="text-primary"><i>4 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">19.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 10:55 <br> (lek, prak)</td>
+                                    <td class="text-primary"><i>TIBBIYOT KASBIGA KIRISH</i> </td>
+                                    <td class="text-primary"><i>(14+46)</i> </td>
+                                    <td class="text-primary"><i>4 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">26.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 10:55 <br> (lek, prak)</td>
+                                    <td class="text-primary"><i>TIBBIYOT KASBIGA KIRISH</i> </td>
+                                    <td class="text-primary"><i>(14+46)</i> </td>
+                                    <td class="text-primary"><i>4 s amaliy <br> 2 s ma'ruza</i> </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+               <!--Десктопная версия -->
+                <div class="col-lg-6 d-none d-md-block">
+                    <div class=" btn-primary table table-bordered text-center table-responsive"><h3>Payshanba</h3></div>
+                    <table class="table table-bordered text-center table-responsive">
+                        <tbody>
+                           <tr class="bg-grey text-nowrap">
+                                <td class="bg-info-light font-weight-bold">Sana</td>
+                                <td class="bg-info-light font-weight-bold">Mashg'ulot <br> o'tish vaqti</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Fan</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Aditoriya <br> soatlari</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Ajratilgan <br> soat</td>
+                           </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">29.09.2022 </td>
+
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak, lek)</td>
+                                    <td class="text-primary"><i>O'ZBEKISTONNING ENG YANGI TARIXI</i> </td>
+                                    <td class="text-primary"><i>(6+24)</i> </td>
+                                    <td class="text-primary"><i>2 s semenar <br> 2 s ma'ruza</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap"> 29.09.2022</td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak, lek) </td>
+                                    <td class="text-primary"><i>TIBBIY KIMYO </i></td>
+                                    <td class="text-primary"><i>(6+18+6) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy 2 s ma'ruza</i></td>
+
+                            </tr>
+
+                             <tr>
+                                <td class="bg-grey text-nowrap">06.10.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak, lek)</td>
+                                    <td class="text-primary"><i>O'ZBEKISTONNING ENG YANGI TARIXI</i> </td>
+                                    <td class="text-primary"><i>(6+24)</i> </td>
+                                    <td class="text-primary"><i>2 s semenar <br> 2 s ma'ruza</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">06.10.2022 </td>
+                                    <td class="text-info-bold">09:35 - 10:55 <br> (prak, lek) </td>
+                                    <td class="text-primary"><i>TIBBIY KIMYO </i></td>
+                                    <td class="text-primary"><i>(6+18+6) </i></td>
+                                    <td class="text-primary"><i>2 s amaliy 2 s ma'ruza</i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Десктопная версия -->
+                <div class="col-lg-6 d-none d-md-block">
+                    <div class=" btn-primary table table-bordered text-center table-responsive"><h3>Juma</h3></div>
+                    <table class="table table-bordered text-center table-responsive">
+                        <tbody>
+                           <tr class="bg-grey text-nowrap">
+                                <td class="bg-info-light font-weight-bold">Sana</td>
+                                <td class="bg-info-light font-weight-bold">Mashg'ulot <br> o'tish vaqti</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Fan</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Aditoriya <br> soatlari</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Ajratilgan <br> soat</td>
+                           </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">30.09.2022 </td>
+                                    <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>JISMONIY TARBIYA VA SPORT</i> </td>
+                                    <td class="text-primary"><i>(0+16)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap"> 30.09.2022</td>
+                                    <td class="text-info-bold">11:10 - 14:30 <br> (lek, prak) </td>
+                                    <td class="text-primary"><i>ANATOMIYA </i></td>
+                                    <td class="text-primary"><i>(12+48) </i></td>
+                                    <td class="text-primary"><i>4 s amaliy 2 s ma'ruza</i></td>
+
+                            </tr>
+
+                             <tr>
+                                <td class="bg-grey text-nowrap">07.10.2022 </td>
+                                    <td class="text-info-bold">11:10 - 14:30 <br> (lek, prak) </td>
+                                    <td class="text-primary"><i>ANATOMIYA </i></td>
+                                    <td class="text-primary"><i>(12+48) </i></td>
+                                    <td class="text-primary"><i>4 s amaliy 2 s ma'ruza</i></td>
+                            </tr>
+
+                             <tr>
+                                <td class="bg-grey text-nowrap">14.10.2022 </td>
+                                   <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>JISMONIY TARBIYA VA SPORT</i> </td>
+                                    <td class="text-primary"><i>(0+16)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="bg-grey text-nowrap">14.10.2022 </td>
+                                    <td class="text-info-bold">11:10 - 14:30 <br> (lek, prak) </td>
+                                    <td class="text-primary"><i>ANATOMIYA </i></td>
+                                    <td class="text-primary"><i>(12+48) </i></td>
+                                    <td class="text-primary"><i>4 s amaliy 2 s ma'ruza</i></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-grey text-nowrap">28.10.2022 </td>
+                                   <td class="text-info-bold"> 08:00 - 09:20 <br> (prak)</td>
+                                    <td class="text-primary"><i>JISMONIY TARBIYA VA SPORT</i> </td>
+                                    <td class="text-primary"><i>(0+16)</i> </td>
+                                    <td class="text-primary"><i>2 s amaliy</i> </td>
+                            </tr>
+
+
+                             <tr>
+                                <td class="bg-grey text-nowrap">21.10.2022 </td>
+                                    <td class="text-info-bold">11:10 - 14:30 <br> (lek, prak) </td>
+                                    <td class="text-primary"><i>ANATOMIYA </i></td>
+                                    <td class="text-primary"><i>(12+48) </i></td>
+                                    <td class="text-primary"><i>4 s amaliy 2 s ma'ruza</i></td>
+                            </tr>
+                             <tr>
+                                <td class="bg-grey text-nowrap">29.10.2022 </td>
+                                    <td class="text-info-bold">11:10 - 14:30 <br> (lek, prak) </td>
+                                    <td class="text-primary"><i>ANATOMIYA </i></td>
+                                    <td class="text-primary"><i>(12+48) </i></td>
+                                    <td class="text-primary"><i>4 s amaliy 2 s ma'ruza</i></td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!--Десктопная версия -->
+                <div class="col-lg-6 d-none d-md-block">
+                   <div class=" btn-primary table table-bordered text-center table-responsive"><h3>Shanba</h3></div>
+                    <table class="table table-bordered text-center table-responsive">
+                        <tbody>
+                           <tr class="bg-grey text-nowrap">
+                                <td class="bg-info-light font-weight-bold">Sana</td>
+                                <td class="bg-info-light font-weight-bold">Mashg'ulot <br> o'tish vaqti</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Fan</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Aditoriya <br> soatlari</td>
+                                <td class="bg-info-light font-weight-bold" width="20%">Ajratilgan <br> soat</td>
+                           </tr>
+                             <tr>
+
+                                 <td colspan="5" class="text-primary"><i>TALABANING MUSTAQIL TA'LIM OLISH KUNI (Самостоятельная работа) </i></td>
+
+                            </tr>
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+
+

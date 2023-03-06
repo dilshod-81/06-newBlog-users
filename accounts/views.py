@@ -11,3 +11,7 @@ class SignUpJadvalView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('jadval')
     template_name = 'jadval.html'
+class SignUp1L1View(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('1L1')
+    template_name = '1L1.html'
