@@ -15,13 +15,11 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="jquery-ui-themes-1.10.3/themes/smoothness/jquery-ui.css" />
 
-
-
-
-
      <script src="{% static 'js/jquery.min.js' %}"></script>
      <script src="{% static 'js/jquery-ui.min.js' %}"></script>
      <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+
+
 
 
 
@@ -30,8 +28,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+    <link
+
 </head>
-<body>
+<body >
 
     <nav class="navbar navbar-expand-lg  bg-primary" style="sbackground-color: #3d65fb;" aria-label="breadcrumb" >
         <a class="navbar-brand"  href="{% url 'home' %}">
@@ -59,6 +59,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 {% if user.is_authenticated %}
                 <ul class="navbar-nav ml-auto">
@@ -71,6 +72,7 @@
                         <div class="dropdown-menu dropdown-menu-lg-right"
                              aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{% url 'article_new' %}">Yangi post</a>
+                                <a class="dropdown-item" href="{% url 'jadval_new' %}">Dars jadvali yaratish</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'password_change' %}">Kalit so'zni almashtirish</a>
                                 <div class="dropdown-divider"></div>
@@ -98,6 +100,10 @@
                 {% endif %}
             </div>
     </nav>
+
+
+
+
 
     <main>
 

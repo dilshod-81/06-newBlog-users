@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Postlar {% endblock title %}
+
+{% block content %}
+<div class="card-columns">
+    {% for jadval in object_list %}
+        <div class="card" style="...">
+            <div class="card-header">
+                <span class="font-weight-bold">
+                    <a href="{% url 'jadval_detail' jadval.pk %}"><h2>{{ jadval.title }}</h2></a>
+                </span>
+            </div>
+            {% if jadval.photo %}
+                <img class="card-img-top" src="{{ jadval.photo.url }}"  alt="{{ jadval.title }}">
+            {% endif %}
+            <div class="card-body">
+
+                {{ jadval.summary }} ... <a href="{% url 'jadval_detail' jadval.pk %}">batafsil</a>
+            </div>
+            <hr>
+            <div class="card-footer text-left text-muted">
+                <span class="text-muted">Muallif:  {{ jadval.author | title}} | {{ jadval.date }}</span>
+            </div>
+  </div>
+
+
+    {% endfor %}
+</div>
+
+{% endblock content %}

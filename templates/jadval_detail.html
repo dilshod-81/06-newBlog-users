@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                {% if object.photo %}
+                    <img  class="card-img-top" src="{{ object.photo.url }}" alt="{{ object.title }}">
+                {% endif %}
+                <h1 class="card-title">{{ object.title }}</h1>
+                <h6 class="card-subtitle mb-2 text-muted">Muallif: {{ object.author|title }} | {{ object.date }}</h6>
+                <p class="card-text">{{ object.body | safe }}</p>
+                <a href="{% url 'jadval_edit' darsjadval.pk %}">Uzgartirish</a> |
+                <a href="{% url 'jadval_delete' darsjadval.pk %}">O'chirish</a> |
+                <a href="{% url 'jadval_list' %}">Barcha dars jadvallar</a>
+            </div>
+            <div class="card">
+                <div class="card-header">Izohlar</div>
+                {% for comment in article.izohlar.all %}
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>{{ izoh}}</p>
+                            <footer class="blockquote-footer">{{ izoh.author }}</footer>
+                        </blockquote>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <p></p>
+    </div>
+{% endblock content %}
