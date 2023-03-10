@@ -3,7 +3,27 @@
 {% block title %} Postlar {% endblock title %}
 
 {% block content %}
-<div class="card-columns">
+
+<div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    {% if object.photo %}
+                        <img  class="card-img-top" src="{{ object.photo.url }}" alt="{{ object.title }}">
+                    {% endif %}
+                    <p class="card-text">{{ object.body | safe }}</p>
+                    <a href="{% url 'article_list' %}">Yangiliklar</a>
+
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'jadval_list' %}">Dars jadvallari</a>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'jadval' %}">Fakultetlar dars jadvali</a>
+                </div>
+            </div>
+
+        </div>
+<div class="card-header">
     {% for jadval in object_list %}
         <div class="card" style="...">
             <div class="card-header">

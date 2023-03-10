@@ -4,7 +4,7 @@
 {% block content %}
     <h1>Dars jadvalni o'chirish</h1>
     <form action="" method="post" >{% csrf_token %}
-        <p>"{{ jadval.title }}" nomli postni o'chirishni istaysizmi? </p>
+        <p>"{{ darsjadval.title }}" nomli postni o'chirishni istaysizmi? </p>
         <button class="btn btn-danger ml-2" type="submit">Ha</button>
     </form>
 {% endblock %}

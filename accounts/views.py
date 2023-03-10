@@ -15,3 +15,7 @@ class SignUp1L1View(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('1L1')
     template_name = '1L1.html'
+class SignUpSammuView(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('sammu')
+    template_name = 'sammu.html'
