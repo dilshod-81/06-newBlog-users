@@ -1,77 +1,926 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %} Bosh sahifa {% endblock title %}
+{% block extrahead %}
 
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {{ block.super }}
+
+
+
+{% endblock %}
 {% block content %}
-
-      <div class="bd-example">
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{% static 'img/birinchi.jpg' %}" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>O‘zbekiston Respublikasi Prezidenti Shavkat Mirziyoyev, Samarqand davlat universiteti rektori, professor Rustam Xolmurodovga "O‘zbekiston Respublikasi fan arbobi" unvonini topshirmoqda...</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/ikkinchi.jpg' %}" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>2022-yil 29-dekabr. Toshkent.  Prezident Shavkat Mirziyoyev taʼlim ko‘rgazmasi doirasida bir guruh maktab o‘qituvchilari bilan uchrashdi..."</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/uchunchi.jpg' %}" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Nobel mukofoti laureati  Aziz Sanjar SamDU rektori, professor Rustam Xolmurodov bilan </h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-      </div>
+<div class="holder" id = "pre-loader">
+        <div class="heartbeatloader">
+            <svg class="svgdraw repeat" width="100%" height="100%" viewBox="0 0 150 400" xmlns="http://www.w3.org/2000/svg">
+                    <path class="path" d="M 0 200 l 40 0 l 5 -40 l 5 40 l 10 0 l 5 15 l 10 -140 l 10 220 l 5 -95 l 10 0 l 5 20 l 5 -20 l 30 0" fill="transparent" stroke-width="4" stroke="black"/>
+            </svg>
+        <div class="innercircle"></div>
+        <div class="outercircle"></div>
+       <!--  <img class="preloader-logo" src = "https://www.sammu.uz/images/logo-128.png?v=1.1.2"> -->
+       <img class="preloader-logo" src = "{% static 'img/logo-lg.png' %}">
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+</div>
+<div id="search-form" class="overlay">
+  <span class="closebtn" id = 'close-search-btn' title="Formani yopish">×</span>
+  <div class="overlay-content">
+    <form action="/uz/search">
+      <input type="text" placeholder="Qidirish..." name="q" class = 'search-input'>
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
 </div>
+ <div class="wrap can-change-font">
+<div class="tiny-slider" id="tiny-sliders">
+   <!--  <div class="item slider-item">
+        <div class="image-container slider-video-container">
+            <video autoplay="true" loop="loop" muted="" id="slider-video" class="slider-video">
+                <source src="https://www.sammu.uz/videos/fon-slide.mp4?v=500.500.500" type="video/mp4">
+            </video>
+        </div>
+    </div> -->
 
-      <div class="jumbotron">
-            <h1 class="display-4">Samarqand davlat tibbiyot universiteti</h1>
-      </div>
-
-      <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    {% if object.photo %}
-                        <img  class="card-img-top" src="{{ object.photo.url }}" alt="{{ object.title }}">
-                    {% endif %}
-                    <p class="card-text">{{ object.body | safe }}</p>
-                    <a href="{% url 'article_list' %}">Yangiliklar</a>
-
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'jadval_list' %}">Dars jadvallari</a>
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'jadval' %}">Fakultetlar dars jadvali</a>
-                </div>
+        <div class="item slider-item">
+            <div class="image-container">
+                <img src="{% static 'img/img_22.png' %}" alt="Bahor" loading="lazy" title="Bahor" class="tiny-slider-image" />
             </div>
-
+            <!--slider text-->
         </div>
 
+        <div class="item slider-item">
+            <div class="image-container">
+                <img src="{% static 'img/img_23.png' %}" alt="Samarkand-2022" loading="lazy" title="Samarkand-2022" class="tiny-slider-image" />
+            </div>
+            <!--slider text-->
+        </div>
 
+        <div class="item slider-item">
+            <div class="image-container">
+                <img src="{% static 'img/img_24.png' %}" alt="SamDTU Yangi bino" loading="lazy" title="SamDTU Yangi bino" class="tiny-slider-image" />
+            </div>
+            <!--slider text-->
+        </div>
 
+        <div class="item slider-item">
+            <div class="image-container">
+                <img src="{% static 'img/img_25.png' %}" alt="Samarqand davlat tibbiyot universiteti" loading="lazy" title="Samarqand davlat tibbiyot universiteti" class="tiny-slider-image" />
+            </div>
+            <!--slider text-->
+        </div>
 
+        <div class="item slider-item">
+            <div class="image-container">
+                <img src="{% static 'img/img_26.png' %}" alt="SamDTU yangi o'quv binosi" loading="lazy" title="SamDTU yangi o'quv binosi" class="tiny-slider-image" />
+            </div>
+            <!--slider text-->
+        </div>
+        </div>
+<section id="section07" class="demo hidden-mobile">
+    <a href="#ScrollOnes"><span></span><span></span><span></span></a>
+</section>
+<section class="slider-controls" id="slider-controls">
+    <button class="slider-control-left">
+        <span class="prev-slider"><i class="fas fa-angle-left"></i></span>
+    </button>
+    <button class="slider-control-right">
+        <span class="next-slider"><i class="fas fa-angle-right"></i></span>
+    </button>
+</section>
+<section class="index-quicklink" id="ScrollOnes">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title wow fadeInRight" data-wow-delay="0.3s">
+                    <h3>Tezkor havolalar</h3>
+                    <div class="heading-divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="https://mt.sammu.uz" class="quicklink-card wow fadeInRight" data-wow-delay="0.5s">
+                        <span class="quicklink-card-icon"><i class="fas fa-graduation-cap"></i></span>
+                        <div class="quicklink-card-title">Masofaviy ta'lim</div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="https://sammu.uz/uz/journals" class="quicklink-card wow fadeInRight" data-wow-delay="0.3s">
+                        <span class="quicklink-card-icon"><i class="fas fa-newspaper"></i></span>
+                        <div class="quicklink-card-title">Universitet jurnallari</div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="https://e-library.sammu.uz/uz" class="quicklink-card wow fadeInRight" data-wow-delay="0.5s">
+                        <span class="quicklink-card-icon"><i class="fas fa-book"></i></span>
+                        <div class="quicklink-card-title">Elektron kutubxona</div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="https://edoc.sammu.uz" class="quicklink-card wow fadeInRight" data-wow-delay="0.5s">
+                        <span class="quicklink-card-icon"><i class="fas fa-file-signature"></i></span>
+                        <div class="quicklink-card-title">Elektron hujjat aylanmasi</div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="https://mail.sammu.uz" class="quicklink-card wow fadeInRight" data-wow-delay="0.4s">
+                        <span class="quicklink-card-icon"><i class="fa fa-envelope"></i></span>
+                        <div class="quicklink-card-title">Elektron pochta</div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="https://interactive.sammu.uz/uz" class="quicklink-card wow fadeInRight" data-wow-delay="0.7s">
+                        <span class="quicklink-card-icon"><i class="fas fa-layer-group"></i></span>
+                        <div class="quicklink-card-title">Interaktiv xizmatlar</div>
+                    </a>
+                </div>
+                        </div>
+    </div>
+</section>
+<section class="index-news wow fadeInUp" data-wow-delay="0.3s">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.3s">
+                    <h3>Yangiliklar</h3>
+                    <div class="heading-divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="news-controls" id="news-controls">
+            <button class="news-control-left">
+                <span class="prev-slider"><i class="fas fa-angle-left"></i></span>
+            </button>
+            <button class="news-control-right">
+                <span class="next-slider"><i class="fas fa-angle-right"></i></span>
+            </button>
+        </div>
+    </div>
+    <div class="container index-news-container">
+        <div class="tiny-slider wow fadeInUp" data-wow-delay="0.3s" id="tiny-news">
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/news/2559101">
+                                <img class="news-card-image" src="{% static 'img/8177547a6d9971a9eb202e858fe7c734.jpg' %}" loading="lazy" alt="​SamDTUda isroillik professorni sunʼiy intellektdan tibbiyotda foydalanish boʻyicha mahorat darsi" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                12.03.2023<br />
+                                <i class="fas fa-eye"></i>
+                                50                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/news/2559101">​SamDTUda isroillik professorni sunʼiy intellektdan tibbiyotda foydalanish boʻyicha mahorat darsi</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/news/2559061">
+                                <img class="news-card-image" src="{% static 'img/4409c5b9e0df1e99bb20e3b24b71df6b.jpg' %}" loading="lazy" alt="Butunjahon iste’molchilar kuniga bag‘ishlangan uchrashuv bo‘lib o‘tdi" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                10.03.2023<br />
+                                <i class="fas fa-eye"></i>
+                                289                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/news/2559061">Butunjahon iste’molchilar kuniga bag‘ishlangan uchrashuv bo‘lib o‘tdi</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/news/2559049">
+                                <img class="news-card-image" src="{% static  'img/5ba970eede907b553bac8d384c28d6dd.jpg' %}" loading="lazy" alt="​Samarqand davlat tibbiyot universiteti va Boltiq federal universiteti Bioinjeneriya sohasida hamkorlikni kuchaytirmoqda" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                09.03.2023<br />
+                                <i class="fas fa-eye"></i>
+                                398                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/news/2559049">​Samarqand davlat tibbiyot universiteti va Boltiq federal universiteti Bioinjeneriya sohasida hamkorlikni kuchaytirmoqda</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/news/2559032">
+                                <img class="news-card-image" src="{% static 'img/e23776344d3f928a6e849329b2f69e1b.jpg' %}" loading="lazy" alt="​Saxovat uyida bayram uchrashuvi oʻtkazildi" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                07.03.2023<br />
+                                <i class="fas fa-eye"></i>
+                                479                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/news/2559032">​Saxovat uyida bayram uchrashuvi oʻtkazildi</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/news/2559022">
+                                <img class="news-card-image" src="{% static 'img/fa2711b8a8ddae590e29a4b1e63e1ca4.jpg' %}" loading="lazy" alt="​Ayol — sadoqat kuchi!" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                07.03.2023<br />
+                                <i class="fas fa-eye"></i>
+                                522                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/news/2559022">​Ayol — sadoqat kuchi!</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/news/2559007">
+                                <img class="news-card-image" src="{% static 'img/img_1.png' %}" loading="lazy" alt="​“8-mart — Xalqaro xotin-qizlar kuni” munosabati bilan tantanali uchrashuv oʻtkazildi" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                07.03.2023<br />
+                                <i class="fas fa-eye"></i>
+                                715                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/news/2559007">​“8-mart — Xalqaro xotin-qizlar kuni” munosabati bilan tantanali uchrashuv oʻtkazildi</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+    </div>
+</section>
+<section class = "index-youtube-video">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title  wow fadeInUp" data-wow-delay="0.3s">
+                    <h3>Samarqand davlat tibbiyot universiteti</h3>
+                    <div class="heading-divider"></div>
+                </div>
+            </div>
+        </div>
+        <div id="w1-container" class="tabs-x  tabs-above tab-align-left "><ul id="w1" class="nav nav-tabs d-print-none" data-krajee-tabsX="tabsX_00000000" role="tablist"><li class="nav-item"><a class="nav-link active" href="#w1-tab0" data-toggle="tab" role="tab" aria-selected="false" aria-controls="w1-tab0"><span class="nav-link-text">Video</span></a></li>
+<li class="nav-item"><a class="nav-link" href="#w1-tab1" data-toggle="tab" role="tab" aria-selected="false" aria-controls="w1-tab1"><span class="nav-link-text">Fotogalereya</span></a></li>
+<li class="nav-item"><a class="nav-link" href="#w1-tab2" data-toggle="tab" role="tab" aria-selected="false" aria-controls="w1-tab2"><span class="nav-link-text">Videogalereya</span></a></li></ul>
+<div class="tab-content  printable"><div class="h4 d-print-block d-none"><span class="nav-link-text">Video</span></div>
+<div id="w1-tab0" class="tab-pane fade show active">
+			<div class="row">
+				<div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+					<div class="youtube-video-overview">
+						<div class="youtube-video-image">
+							<img src="{% static 'img/img_2.png' %}" class="w-100" alt="#">
+						</div>
+						<div class="youtube-video-main">
+							<div class="youtube-promo-video">
+								<div class="youtube-waves-block">
+									<div class="youtube-waves youtube-wave-1"></div>
+									<div class="youtube-waves youtube-wave-2"></div>
+									<div class="youtube-waves youtube-wave-3"></div>
+								</div>
+							</div>
+							<button class = "youtube-video youtube-video-popup video-btn" type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/lyjrHB08U8g" data-target="#video-modal"><i class="fas fa-play"></i></button>
+
+							<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						        <div class="modal-dialog modal-dialog-video" role="document">
+						            <div class="modal-content">
+						                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						                    <span aria-hidden="true">&times;</span>
+						                </button>
+						                <div class="modal-body">
+						                    <div class="embed-responsive embed-responsive-16by9">
+						                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+
+						</div>
+					</div>
+				</div>
+			</div></div>
+<div class="h4 d-print-block d-none"><span class="nav-link-text">Fotogalereya</span></div>
+<div id="w1-tab1" class="tab-pane fade">
+			<div class="row">
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/photogallery/2538871">
+									<img class = "news-card-image" src="{% static 'img/img_4.png' %}" loading = "lazy" alt = "Samarqandda Navro‘zi olam keng nishonlandi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 21.03.2022<br><i class="fas fa-eye"></i> 3577
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/photogallery/2538871">Samarqandda Navro‘zi olam keng nishonlandi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/photogallery/2536569">
+									<img class = "news-card-image" src="{% static 'img/img_5.png' %}" loading = "lazy" alt = "Международная научно-практическая конференция «Горизонты современной хирургии»" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 19.12.2021<br><i class="fas fa-eye"></i> 2827
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/photogallery/2536569">Международная научно-практическая конференция «Горизонты современной хирургии»</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/photogallery/2536406">
+									<img class = "news-card-image" src="{% static 'img/img_6.png' %}" loading = "lazy" alt = "“Samarqand-2020” tibbiyot oliygohlari talabalarining II xalqaro olimpiadasi yetti mamlakat yoshlarini birlashtirdi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 16.12.2021<br><i class="fas fa-eye"></i> 6014
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/photogallery/2536406">“Samarqand-2020” tibbiyot oliygohlari talabalarining II xalqaro olimpiadasi yetti mamlakat yoshlarini birlashtirdi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/photogallery/2536144">
+									<img class = "news-card-image" src="{% static 'img/img_7.png' %}" loading = "lazy" alt = "​“Uchinchi Renessansda Ibn Sino izdoshlari” respublika ilmiy-amaliy konferensiyasi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 03.12.2021<br><i class="fas fa-eye"></i> 3031
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/photogallery/2536144">​“Uchinchi Renessansda Ibn Sino izdoshlari” respublika ilmiy-amaliy konferensiyasi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/photogallery/2535726">
+									<img class = "news-card-image" src="{% static 'img/img_8.png' %}" loading = "lazy" alt = "  «Zamonaviy pediatriyani yutuqlari va istiqbollari» Xalqaro ilmiy-amaliy konferensiyasi bo‘lib o‘tdi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 27.11.2021<br><i class="fas fa-eye"></i> 4148
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/photogallery/2535726">  «Zamonaviy pediatriyani yutuqlari va istiqbollari» Xalqaro ilmiy-amaliy konferensiyasi bo‘lib o‘tdi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/photogallery/2534342">
+									<img class = "news-card-image" src="{% static 'img/img_9.png' %}" loading = "lazy" alt = "Professor O‘ktam Vaxabovani xotirasiga bag‘ishlangan «Ichki kasalliklar akademiyasi – so‘nggi yutuqlar» xalqaro ilmiy-amaliy konferensiyasi bo‘lib o‘tdi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 09.10.2021<br><i class="fas fa-eye"></i> 3076
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/photogallery/2534342">Professor O‘ktam Vaxabovani xotirasiga bag‘ishlangan «Ichki kasalliklar akademiyasi – so‘nggi yutuqlar» xalqaro ilmiy-amaliy konferensiyasi bo‘lib o‘tdi</a>
+								</h3>
+							</div>
+						</div>
+					</div><div class = "col-12 btn-go-parent"><a href = "/uz/photogallery" class = "btn-go-to">Barchasi <i class="fas fa-arrow-right"></i></a></div></div></div>
+<div class="h4 d-print-block d-none"><span class="nav-link-text">Videogalereya</span></div>
+<div id="w1-tab2" class="tab-pane fade">
+			<div class="row">
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/videogallery/2558268">
+									<img class = "news-card-image" src="{% static 'img/img_10.png' %}" loading = "lazy" alt = "“Yangi Oʻzbekistonning taraqqiyot yoʻli” koʻrsatuvi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 02.02.2023<br><i class="fas fa-eye"></i> 320
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/videogallery/2558268">“Yangi Oʻzbekistonning taraqqiyot yoʻli” koʻrsatuvi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/videogallery/2557691">
+									<img class = "news-card-image" src="{% static 'img/img_11.png' %}" loading = "lazy" alt = "Samarqand davlat tibbiyot universiteti rektori Jasur Rizayevning yangi yil tabrigi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 31.12.2022<br><i class="fas fa-eye"></i> 493
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/videogallery/2557691">Samarqand davlat tibbiyot universiteti rektori Jasur Rizayevning yangi yil tabrigi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/videogallery/2557662">
+									<img class = "news-card-image" src="{% static 'img/img_12.png' %}" loading = "lazy" alt = "​Samarqand davlat tibbiyot universitetida “Samarqand-2020” tibbiyot oliygohlari talabalarining III Xalqaro olimpiadasi boʻlib oʻtdi" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 27.12.2022<br><i class="fas fa-eye"></i> 680
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/videogallery/2557662">​Samarqand davlat tibbiyot universitetida “Samarqand-2020” tibbiyot oliygohlari talabalarining III Xalqaro olimpiadasi boʻlib oʻtdi</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/videogallery/2557416">
+									<img class = "news-card-image" src="{% static 'img/img_13.png' %}" loading = "lazy" alt = "Aziz ustozlar" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 16.12.2022<br><i class="fas fa-eye"></i> 1177
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/videogallery/2557416">Aziz ustozlar</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/videogallery/2557347">
+									<img class = "news-card-image" src="{% static 'img/img_14.png' %}" loading = "lazy" alt = "Tibbiyot oliy o'quv yurtlari talabalari uchun "Samarqand–2020" III xalqaro Olimpiadasining jonli efiri" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 13.12.2022<br><i class="fas fa-eye"></i> 992
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/videogallery/2557347">Tibbiyot oliy o'quv yurtlari talabalari uchun "Samarqand–2020" III xalqaro Olimpiadasining jonli efiri</a>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class = "col-lg-4 col-md-6 col-12 mt-4 news-item">
+						<div class="news-card">
+							<div class = "news-card-image-blog">
+								<a href="/uz/videogallery/2557330">
+									<img class = "news-card-image" src="{% static 'img/img_15.png' %}" loading = "lazy" alt = ""Samarqand–2020"Olimpiadasi qatnashchilarining diplomlari va sertifikatlarini yuklab olish bo'yicha video qo'llanma" width = "400" height = "209">
+								</a>
+								<div class="post-date"><i class="fas fa-calendar"></i> 13.12.2022<br><i class="fas fa-eye"></i> 1033
+								</div>
+							</div>
+							<div class="news-card-content">
+								<h3>
+									<a href="/uz/videogallery/2557330">"Samarqand–2020"Olimpiadasi qatnashchilarining diplomlari va sertifikatlarini yuklab olish bo'yicha video qo'llanma</a>
+								</h3>
+							</div>
+						</div>
+					</div><div class = "col-12 btn-go-parent"><a href = "/uz/videogallery" class = "btn-go-to">Barchasi <i class="fas fa-arrow-right"></i></a></div></div></div>
+</div></div>    </div>
+</section>
+<section class="index-announcements">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title wow fadeInRight" data-wow-delay="0.3s">
+                    <h3>E'lonlar</h3>
+                    <div class="heading-divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="news-controls" id="announcements-controls">
+            <button class="news-control-left">
+                <span class="prev-slider"><i class="fas fa-angle-left"></i></span>
+            </button>
+            <button class="news-control-right">
+                <span class="next-slider"><i class="fas fa-angle-right"></i></span>
+            </button>
+        </div>
+    </div>
+    <div class="container index-news-container">
+        <div class="tiny-slider wow fadeInRight" data-wow-delay="0.3s" id="tiny-announcements">
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/announcements/2558937">
+                                <img class="news-card-image" src="{% static 'img/img_16.png' %}" loading="lazy" alt="«Stomatologiya va yuz-jag‘ xirurgiyasida ta’lim, fan va klinik amaliyotga zamonaviy yondashuvlar» Xalqaro ilmiy-amaliy konferensiya va “Stomatologiyada estetik tiklanish mahorati” ishtirok etishga taklif etamiz (14-15.04.2023; SamDTU)!" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                01.03.2023 <i class="fas fa-eye"></i><br />
+                                565                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/announcements/2558937">«Stomatologiya va yuz-jag‘ xirurgiyasida ta’lim, fan va klinik amaliyotga zamonaviy yondashuvlar» Xalqaro ilmiy-amaliy konferensiya va “Stomatologiyada estetik tiklanish mahorati” ishtirok etishga taklif etamiz (14-15.04.2023; SamDTU)!</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/announcements/2558832">
+                                <img class="news-card-image" src="{% static 'img/img_16.png' %}" loading="lazy" alt="“Biologiya va parazitologiyaning dolzarb masalalari” Xalqaro ilmiy-amaliy konferensiyada ishtirok etishga taklif etamiz (2-3.06.2023; SamDTU)!" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                26.02.2023 <i class="fas fa-eye"></i><br />
+                                580                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/announcements/2558832">“Biologiya va parazitologiyaning dolzarb masalalari” Xalqaro ilmiy-amaliy konferensiyada ishtirok etishga taklif etamiz (2-3.06.2023; SamDTU)!</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/announcements/2558821">
+                                <img class="news-card-image" src="{% static 'img/img_16.png' %}" loading="lazy" alt="«Sog‘liqni saqlashda innovatsion texnologiyalar: ichki tibbiyot uchun yangi imкoniyatlar» Xalqaro ilmiy-amaliy konferensiyada ishtirok etishga taklif etamiz (7-8.04.2023; SamDTU)!" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                26.02.2023 <i class="fas fa-eye"></i><br />
+                                344                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/announcements/2558821">«Sog‘liqni saqlashda innovatsion texnologiyalar: ichki tibbiyot uchun yangi imкoniyatlar» Xalqaro ilmiy-amaliy konferensiyada ishtirok etishga taklif etamiz (7-8.04.2023; SamDTU)!</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/announcements/2558754">
+                                <img class="news-card-image" src="{% static 'img/img_17.png' %}" loading="lazy" alt="​Universitet xodimlariga “Web of Science” ilmiy resurslaridan foydalanish imkoniyati" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                22.02.2023 <i class="fas fa-eye"></i><br />
+                                715                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/announcements/2558754">​Universitet xodimlariga “Web of Science” ilmiy resurslaridan foydalanish imkoniyati</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/announcements/2558609">
+                                <img class="news-card-image" src="{% static 'img/img_16.png' %}" loading="lazy" alt="2022/2023 o'quv yili uchun magistratura yanvar oyi qabul natijalari!" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                16.02.2023 <i class="fas fa-eye"></i><br />
+                                862                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/announcements/2558609">2022/2023 o'quv yili uchun magistratura yanvar oyi qabul natijalari!</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item news-item">
+                    <div class="news-card">
+                        <div class="news-card-image-blog">
+                            <a href="/uz/announcements/2558562">
+                                <img class="news-card-image" src="{% static 'img/img_16.png' %}" loading="lazy" alt="​Indoneziyada ta’lim olish uchun grantlar e’lon qilindi!" width="400" height="209" />
+                            </a>
+                            <div class="post-date">
+                                <i class="fas fa-calendar"></i>
+                                14.02.2023 <i class="fas fa-eye"></i><br />
+                                713                            </div>
+                        </div>
+                        <div class="news-card-content">
+                            <h3>
+                                <a href="/uz/announcements/2558562">​Indoneziyada ta’lim olish uchun grantlar e’lon qilindi!</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+    </div>
+</section>
+<section class="index-numberlinks wow fadeInUp" data-wow-delay="0.6s" id="index-numberlinks">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title c-white wow fadeInUp" data-wow-delay="0.5?>s">
+                    <h3>Asosiy ko'rsatkichlar</h3>
+                    <div class="heading-divider-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="numberlink-card wow fadeInUp" data-wow-delay="0.5?>s">
+                        <div class="numberlink-card-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="numberlink-card-content">
+                            <h6>
+                                <span class="counter count-from-to" data-speed="8000" data-from="0" data-to="624">624</span>
+                            </h6>
+
+                            <p>Professor-o'qituvchilar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="numberlink-card wow fadeInUp" data-wow-delay="0.5?>s">
+                        <div class="numberlink-card-icon"><i class="fas fa-users"></i></div>
+                        <div class="numberlink-card-content">
+                            <h6>
+                                <span class="counter count-from-to" data-speed="8000" data-from="0" data-to="9729">9729</span>
+                            </h6>
+
+                            <p>Talabalar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="numberlink-card wow fadeInUp" data-wow-delay="0.5?>s">
+                        <div class="numberlink-card-icon"><i class="fas fa-users"></i></div>
+                        <div class="numberlink-card-content">
+                            <h6>
+                                <span class="counter count-from-to" data-speed="8000" data-from="0" data-to="765">765</span>
+                            </h6>
+
+                            <p>Xorijiy talabalar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="numberlink-card wow fadeInUp" data-wow-delay="0.5?>s">
+                        <div class="numberlink-card-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="numberlink-card-content">
+                            <h6>
+                                <span class="counter count-from-to" data-speed="8000" data-from="0" data-to="568">568</span>
+                            </h6>
+
+                            <p>Bitiruvchilar</p>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+    </div>
+</section>
+<section class="index-faqs-image wow fadeInUp" data-wow-delay="0.6s">
+    <div class="container">
+        <div class="row justify-center text-center">
+            <div class="col-xl-8 col-lg-9 col-md-11">
+                <div class="sectionTitle">
+                    <h2 class="sectionTitle__title">FAQs</h2>
+                    <h3 class="sectionTitle__text">Samarqand davlat tibbiyot universiteti</h3>
+                </div>
+                <div class="accordion -block text-left pt-60 lg:pt-40 js-accordion" id="myAccordion">
+                    <div class="accordion__item wow fadeInUp" data-wow-delay="0.7s" data-toggle="collapse" data-target="#collapsible-1" data-parent="#myAccordion">
+                        <div class="accordion__button">
+                            <div class="accordion__icon">
+                                <i class="fa fa-question-circle faq-faqs-icon" aria-hidden="true"></i>
+                            </div>
+                            <span class="text-17 fw-500 text-dark-1">Samarqand davlat tibbiyot universitetida oʼqish qaysi tillarda amalga oshiriladi?</span>
+                        </div>
+                        <div id="collapsible-1" class="collapse">
+                            <div class="accordion__content__inner">
+                                <p>Samarqand davlat tibbiyot universitetida darslar oʼzbek, rus va ingliz tillarida olib boriladi.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item wow fadeInUp" data-wow-delay="0.7s" data-toggle="collapse" data-target="#collapsible-2" data-parent="#myAccordion">
+                        <div class="accordion__button">
+                            <div class="accordion__icon">
+                                <i class="fa fa-question-circle faq-faqs-icon" aria-hidden="true"></i>
+                            </div>
+                            <span class="text-17 fw-500 text-dark-1">Samarqand davlat tibbiyot universiteti yotoqxona bilan taʼminlanishi qanday amalga oshiriladi?</span>
+                        </div>
+                        <div id="collapsible-2" class="collapse">
+                            <div class="accordion__content__inner">
+                                <p>Xorijiy fuqarolar uchun taʼlim toʼlov-kontrakt asosida amalga oshiriladi.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item wow fadeInUp" data-wow-delay="0.7s" data-toggle="collapse" data-target="#collapsible-3" data-parent="#myAccordion">
+                        <div class="accordion__button">
+                            <div class="accordion__icon">
+                                <i class="fa fa-question-circle faq-faqs-icon" aria-hidden="true"></i>
+                            </div>
+                            <span class="text-17 fw-500 text-dark-1">Xorijiy fuqarolar Samarqand davlat tibbiyot universitetida qanday shart-sharoitlarda taʼlim oladi?</span>
+                        </div>
+                        <div id="collapsible-3" class="collapse">
+                            <div class="accordion__content__inner">
+                                <p>Xorijiy fuqarolar uchun taʼlim toʼlov-kontrakt asosida amalga oshiriladi.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item wow fadeInUp" data-wow-delay="0.7s" data-toggle="collapse" data-target="#collapsible-4" data-parent="#myAccordion">
+                        <div class="accordion__button">
+                            <div class="accordion__icon">
+                                <i class="fa fa-question-circle faq-faqs-icon" aria-hidden="true"></i>
+                            </div>
+                            <span class="text-17 fw-500 text-dark-1">Talabalar respublika fan olimpiadasi nima maqsadda va qachon o'tkaziladi?</span>
+                        </div>
+                        <div id="collapsible-4" class="collapse">
+                            <div class="accordion__content__inner">
+                                <p>O’zbekiston Respublikasining “Ta’lim to’g’risida”gi hamda “Kadrlar tayyorlash milliy dasturi to’g’risida”gi qonunlariga muvofiq O’zbekiston Respublikasi hududida faoliyat ko’rsatayotgan davlat oliy ta’lim muassasalarida tahsil olayotgan talabalar davlat ta’lim standarlariga muvofiq o’quv rejasida nazarda tutilgan tegishli fanlar bo’yicha o’z bilimi va tabiiy qobiliyatlarini namoyon etish va rivojlantirish, o’zlarining noyob iste’dodlarini ro’yobga chiqarish uchun keng imkoniyatlar yaratish maqsadida Oliy va o’rta maxsus ta’lim vazirligi tomonidan tasdiqlangan “Oliy ta’lim muassasalari talabalari respublika fan olimpiadasi to’g’risidagi Nizom”ga muvofiq har yili aprel-may oylarida talabalar respublika fan olimpiadasi o’tkaziladi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="layout-pt-lg bg-light-3 mobile-app-size wow fadeInLeft">
+    <div data-anim-wrap="" class="container animated">
+        <div class="row y-gap-20 items-center">
+            <div class="col-lg-5 wow fadeInLeftBig">
+                <div class="app-content">
+                    <h2 data-anim-child="slide-up delay-3" class="app-content__title is-in-view">
+                        Mobile App<br />
+                        <span class="wow fadeInDownBig" data-wow-delay="0.6s"">Har bir joyda</span>
+                    </h2>
+                    <p data-anim-child="slide-up delay-4" class="app-content__text is-in-view">Samarqand davlat tibbiyot universiteti rasmiy mobil ilovasini yuklab oling va qo'shimcha imkoniyatlardan foydalaning!</p>
+                    <div style="display: flex; justify-content: center;" data-anim-child="slide-up delay-5" class="app-content__qr is-in-view hidden-mobile">
+                        <img src="{% static 'img/apps_qr.png' %}" alt="qr-code" width="200" height="200" />
+                    </div>
+                    <div data-anim-child="slide-up delay-5" class="app-content__buttons is-in-view">
+                        <a href="https://play.google.com/store/apps/details?id=uz.sammi.app&utm_source=sammi.uz&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+                            <img class = "play-store-image" alt='Google Play orqali oling' src="/static/img/play-market.svg"/>
+                        </a>
+                        <a href="https://apps.apple.com/uz/app/samdtu-rasmiy-ilovasi/id1599322059">
+                            <img class = "app-store-image" alt='get-app-app-store' src="/static/img/app-store.svg" alt="Download on the App Store">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 hidden-mobile accordion-img">
+                <div data-anim-child="slide-up delay-1" class="app-image is-in-view pull-right wow fadeInRightBig">
+                    <img src="{% static 'img/mobileapp.png' %}" alt="image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="index-usefullinks wow fadeInUp" data-wow-delay="0.3s" style="background: #fff;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.3s">
+                    <h3>Rasmiy saytlar</h3>
+                    <div class="heading-divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="useful-controls" id="useful-controls">
+            <button class="news-control-left">
+                <span class="prev-slider"><i class="fas fa-angle-left"></i></span>
+            </button>
+            <button class="news-control-right">
+                <span class="next-slider"><i class="fas fa-angle-right"></i></span>
+            </button>
+        </div>
+    </div>
+    <div class="container index-useful-container wow fadeInUpBig">
+        <div class="tiny-slider wow fadeIn" data-wow-delay="0.1s" id="tiny-useful">
+
+                <div class="item useful-item">
+                    <div class="useful-card">
+                        <div class="useful-card-image-blog">
+                            <a href="https://president.uz/oz">
+                                <img class="useful-card-image" src="{% static 'img/img_18.png' %}" loading="lazy" alt="O‘zbekiston Respublikasi Prezidenti" width="400" height="209" />
+                            </a>
+                        </div>
+                        <a href="https://president.uz/oz">
+                            <div class="post-useful">
+                                <p>O‘zbekiston Respublikasi Prezidenti</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item useful-item">
+                    <div class="useful-card">
+                        <div class="useful-card-image-blog">
+                            <a href="http://ssv.uz/">
+                                <img class="useful-card-image" src="{% static 'img/img_19.png' %}" loading="lazy" alt="Sog'liqni saqlash vazirligi" width="400" height="209" />
+                            </a>
+                        </div>
+                        <a href="http://ssv.uz/">
+                            <div class="post-useful">
+                                <p>Sog'liqni saqlash vazirligi</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item useful-item">
+                    <div class="useful-card">
+                        <div class="useful-card-image-blog">
+                            <a href="https://edu.uz/uz">
+                                <img class="useful-card-image" src="{% static 'img/img_20.png' %}" loading="lazy" alt="Oliy va o'rta maxsus ta'lim vazirligi" width="400" height="209" />
+                            </a>
+                        </div>
+                        <a href="https://edu.uz/uz">
+                            <div class="post-useful">
+                                <p>Oliy va o'rta maxsus ta'lim vazirligi</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item useful-item">
+                    <div class="useful-card">
+                        <div class="useful-card-image-blog">
+                            <a href="https://www.gov.uz/uz">
+                                <img class="useful-card-image" src="{% static 'img/img_20.png' %}" loading="lazy" alt="O'zbekiston Respublikasi hukumat portali" width="400" height="209" />
+                            </a>
+                        </div>
+                        <a href="https://www.gov.uz/uz">
+                            <div class="post-useful">
+                                <p>O'zbekiston Respublikasi hukumat portali</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                        </div>
+    </div>
+</section>
+</div>
 
 {% endblock content %}

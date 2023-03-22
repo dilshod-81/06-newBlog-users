@@ -5,29 +5,20 @@
 {% block content %}
 
 
-
-<div class="jumbotron">
-            <h4 class="display-6">Samarqand davlat tibbiyot universiteti</h4>
-      </div>
-       <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    {% if object.photo %}
-                        <img  class="card-img-top" src="{{ object.photo.url }}" alt="{{ object.title }}">
-                    {% endif %}
-                    <p class="card-text">{{ object.body | safe }}</p>
-
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'jadval_list' %}">Dars jadvallari</a>
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'jadval' %}">Fakultetlar dars jadvali</a>
-                </div>
+<div class="header-banner">
+        <div class="page-title-wrapper">
+            <div class="banner-wrapper container">
+                <div class="header-title"><h1>Bakalavriat</h1></div>
+                <nav aria-label="breadcrumb"><ol id="w0" class="breadcrumb"><li class="breadcrumb-item"><a href="/">Asosiy</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Yangiliklar</li>
+                    </ol>
+                </nav>
             </div>
-
         </div>
-       <div class="card-columns">
+
+    </div>
+<div class="wrapper container">
+<div class="card-columns">
     {% for article in object_list %}
         <div class="card" style="...">
             <div class="card-header">
@@ -48,6 +39,7 @@
 
 
     {% endfor %}
+</div>
 </div>
 
 

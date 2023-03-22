@@ -3,27 +3,25 @@
 {% block title %} Postlar {% endblock title %}
 
 {% block content %}
-
-<div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    {% if object.photo %}
-                        <img  class="card-img-top" src="{{ object.photo.url }}" alt="{{ object.title }}">
-                    {% endif %}
-                    <p class="card-text">{{ object.body | safe }}</p>
-                    <a href="{% url 'article_list' %}">Yangiliklar</a>
-
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'jadval_list' %}">Dars jadvallari</a>
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'jadval' %}">Fakultetlar dars jadvali</a>
-                </div>
-            </div>
-
+ <div class="wrap can-change-font">
+     <div class="header-banner">
+        <div class="page-title-wrapper">
+            <div class="banner-wrapper container">
+                <div class="header-title"><h1>Bakalavriat</h1></div>
+                <nav aria-label="breadcrumb"><ol id="w0" class="breadcrumb"><li class="breadcrumb-item"><a href="/">Asosiy</a></li>
+<li class="breadcrumb-item active" aria-current="page">Dars jadvali</li>
+</ol></nav>            </div>
         </div>
-<div class="card-header">
+    </div>
+    <div class="container main-container">
+        <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v14.0&amp;appId=399480630744755&amp;autoLogAppEvents=1" nonce="DWmN075f"></script>
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-12"></div>
+        <div class="col-lg-8 col-12">
+            <div class="card-header">
     {% for jadval in object_list %}
         <div class="card" style="...">
             <div class="card-header">
@@ -47,5 +45,53 @@
 
     {% endfor %}
 </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="div-article-sidebar" id="article-sidebar">
+                                <div class="inner-sidebar">
+                    <h4 class="article-sidebar-title">Bakalavriat</h4>
+
+                    <a href="/uz/pages/instruction" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  Yo'riqnoma</a>
+
+                    <a href="/uz/pages/schedule_sec_bachelor" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  YaDA o'tkazish jadvali</a>
+
+                    <a href="/uz/pages/class_schedule" class="article-sidebar-item main-sidebar-item article-sidebar-item-active"><i class="fas fa-angle-double-right"></i>  Dars jadvali</a>
+
+                    <a href="/uz/pages/learning" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  O'zlashtirish</a>
+
+                    <a href="https://mt.sammu.uz/course/index.php?categoryid=2492" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  Davomat</a>
+
+                    <a href="/uz/pages/catalogue_sciences" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  Fanlar katalogi</a>
+
+                    <a href="/uz/pages/talented_students" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  Iqtidorli talabalar</a>
+
+                    <a href="/uz/pages/same_scholarships" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  Stipendiyalar</a>
+
+                    <a href="/uz/pages/life_students" class="article-sidebar-item main-sidebar-item "><i class="fas fa-angle-double-right"></i>  Talabalar turar joyi</a>
+                                    </div>
+                                                <div class="inner-sidebar">
+                    <h4 class="article-sidebar-title">So'nggi yangiliklar</h4>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2559101"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 12.03.2023</span><br>​SamDTUda isroillik professorni sunʼiy intellektdan tibbiyotda foydalanish boʻyicha mahorat darsi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2559061"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 10.03.2023</span><br>Butunjahon iste’molchilar kuniga bag‘ishlangan uchrashuv bo‘lib o‘tdi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2559049"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 09.03.2023</span><br>​Samarqand davlat tibbiyot universiteti va Boltiq federal universiteti Bioinjeneriya sohasida hamkorlikni kuchaytirmoqda</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2559032"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 07.03.2023</span><br>​Saxovat uyida bayram uchrashuvi oʻtkazildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2559022"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 07.03.2023</span><br>​Ayol — sadoqat kuchi!</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2559007"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 07.03.2023</span><br>​“8-mart — Xalqaro xotin-qizlar kuni” munosabati bilan tantanali uchrashuv oʻtkazildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2558987"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 06.03.2023</span><br>​Urgut kasb-hunar maktabida davra suhbati oʻtkazildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2558975"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 03.03.2023</span><br>​“8-mart — Xalqaro xotin-qizlar kuni”ga bagʻishlab sport musobaqalari oʻtkazildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2558948"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 02.03.2023</span><br>​Xorijlik talabalar uchun shoshilinch tez tibbiy yordam boʻyicha amaliy mahorat darslari oʻtkazildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2558922"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 01.03.2023</span><br>​SamDTUda xorijiy professorlarni mahorat darslari oʻtkazildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2558890"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 28.02.2023</span><br>​Samarqand davlat tibbiyot universitetini Litva oliygohi bilan hamkorligi oʻrnatildi</a>
+                                        <a class="article-sidebar-news-item " href="/uz/news/2558906"><span class="article-sidebar-news-item-date"><i class="fa fa-calendar-alt"></i> 28.02.2023</span><br>Universitet fakultetlarini “Dekan kubogi” sport oʻyinlari boʻlib oʻtdi</a>
+                                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
 
 {% endblock content %}

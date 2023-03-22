@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% block title %} Ro'yxatdan o'tish {% endblock title %}
 {% block content %}
+<div class="container">
     <h2>Ro'yxatdan o'tish</h2>
     <form method="post">{% csrf_token %}
 <!--        {{ form.as_p }}-->
@@ -9,5 +10,5 @@
 <!--        <button type="submit">Yuborish</button>-->
             <button type="submit" class="btn btn-success">Yuborish</button>
     </form>
-
+</div>
 {% endblock content %}

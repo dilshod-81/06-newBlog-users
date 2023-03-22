@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'pages',
     'articles',
     'darsjadval',
+
 ]
 
 MIDDLEWARE = [

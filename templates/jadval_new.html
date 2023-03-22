@@ -2,12 +2,39 @@
 
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1>Yangi post</h1>
+ <div class="wrap can-change-font">
+     <div class="header-banner">
+        <div class="page-title-wrapper">
+            <div class="banner-wrapper container">
+                <div class="header-title"><h1>Bakalavriat</h1></div>
+                <nav aria-label="breadcrumb"><ol id="w0" class="breadcrumb"><li class="breadcrumb-item"><a href="/">Asosiy</a></li>
+<li class="breadcrumb-item active" aria-current="page">Dars jadvali</li>
+</ol></nav>            </div>
+        </div>
+    </div>
+    <div class="container main-container">
+        <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v14.0&amp;appId=399480630744755&amp;autoLogAppEvents=1" nonce="DWmN075f"></script>
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-12"></div>
+        <div class="col-lg-8 col-12">
+
+    <h1>Dars jadval yaratish</h1>
 
     <form method="post" enctype="multipart/form-data">{% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}
         <button class="btn btn-success ml-2" type="submit">Saqlash</button>
     </form>
+        </div>
+
+    </div>
+</div>
+
+    </div>
+
+</div>
 
 {% endblock content %}

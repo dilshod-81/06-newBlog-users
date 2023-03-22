@@ -95,3 +95,140 @@
 
 </body>
 </html>
+
+
+
+
+{% load static %}
+
+
+{% block extrahead %}
+
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {{ block.super }}
+{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} dars jadval{% endblock %}</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+     <script src="{% static 'js/jquery.min.js' %}"></script>
+     <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+     <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+
+
+
+
+
+     <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+
+
+
+</head>
+<body >
+
+    <nav class="navbar navbar-expand-lg  bg-primary" style="sbackground-color: #3d65fb;" aria-label="breadcrumb" >
+        <a class="navbar-brand"  href="{% url 'home' %}">
+            <img src="{% static 'img/flag.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <a class="navbar-brand"  href="{% url 'home' %}" >
+            <img src="{% static 'img/emblem.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <a class="navbar-brand"  href="{% url 'home' %}" >
+            <img src="{% static 'img/anthem.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <a class="navbar-brand"  href="{% url 'home' %}" >
+            <img src="{% static 'img/sitemap.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <a class="navbar-brand"  href="{% url 'home' %}" >
+            <img src="{% static 'img/eye.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+        <a class="navbar-brand"  href="{% url 'home' %}" >
+            <img src="{% static 'img/mail.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle  btn-outline-light" href="#"
+                           id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                           {{ user.username | title }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg-right"
+                             aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'article_new' %}">Yangi post</a>
+                                <a class="dropdown-item" href="{% url 'jadval_new' %}">Dars jadvali yaratish</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'password_change' %}">Kalit so'zni almashtirish</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Chiqib ketish</a>
+                            </div>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <form class="form-inline ml-auto">
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                              <li class="nav-item dropdown">
+                                 <a id="profile-dropdown" href="#" class="btn btn-primary profile-dropdown-link" aria-expanded="false" data-toggle="dropdown">
+                                    <img src="{% static 'img/user-login.png' %}" alt = "Tizimga kirish - Samarqand davlat tibbiyot universiteti" class = "profile-photo" width = "25" height = "25">
+                                    <div class = "profile-name">
+                                        <div>Tizimga kirish</div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                  <a href="{% url 'login' %}" class="dropdown-item ">Kirish</a>
+                                  <a href="{% url 'jadval' %}" class="dropdown-item ">Dars jadvali</a>
+                                  <a href="{% url 'signup' %}" class="dropdown-item">Ro'yxatdan o'tish</a>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                    </form>
+                {% endif %}
+            </div>
+    </nav>
+
+
+    <main>
+
+    <div class="card-body">
+           <li class="list-inline-item">
+                                    <a  href = "#"><img src="/img/flag-uz.png" alt = "O'zbekiston Respublikasining Davlat Bayrog'i"  width="50" height="50">
+                                    </a>
+                                </li>
+</div>
+        <div class="container">
+
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </main>
+
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+<! --  bhhghg  --!>
+
+
+

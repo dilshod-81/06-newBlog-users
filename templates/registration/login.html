@@ -3,6 +3,7 @@
 {% block title %} Kirish {% endblock title %}
 
 {% block content %}
+<div class="container">
     <h2>Saytga kirish</h2>
 
     <form method="post">{% csrf_token %}
@@ -12,5 +13,5 @@
         <a class="btn btn-outline-danger" href="{% url 'password_reset' %}" role="button">Kalit so'zni tiklash</a>
     </form>
 
-
+</div>
 {% endblock content %}

@@ -19,3 +19,7 @@ class SignUpSammuView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('sammu')
     template_name = 'sammu.html'
+class SignUpIndexiew(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('index')
+    template_name = 'index.html'
